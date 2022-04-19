@@ -1,6 +1,5 @@
 import Cleanup from './components/Cleanup';
 // import PreviousState from './components/PreviousState';
-
 import { style } from './AppCss';
 
 // const style = {
