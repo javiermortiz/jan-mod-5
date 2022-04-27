@@ -22,7 +22,7 @@ export const fetchArticles = () => async (dispatch) => {
 };
 
 export const writeArticle = (payload) => async (dispatch) => {
-  const response = await fetch('/api/articles', {
+  const response = await fetch('/articles', {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(payload)
@@ -32,6 +32,8 @@ export const writeArticle = (payload) => async (dispatch) => {
     const article = await response.json();
     dispatch(addArticle(article));
     return article;
+  } else {
+    return undefined;
   }
 };
 

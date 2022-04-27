@@ -1,12 +1,6 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-//!!ADD
-// import { nanoid } from 'nanoid';
-// import { addArticle } from '../../store/articleReducer';
-//!!END_ADD
-//!!START SILENT
 import { writeArticle } from '../../store/articleReducer';
-//!!END
 import './ArticleInput.css';
 
 const ArticleInput = () => {
@@ -16,49 +10,16 @@ const ArticleInput = () => {
 
   const dispatch = useDispatch();
 
-  //!!START SILENT
   const handleSubmit = async (e) => {
-  //!!END
-  //!!ADD
-  // const handleSubmit = (e) => {
-  //!!END_ADD
     e.preventDefault();
     const newArticle = {
-      //!!ADD
-      // id: nanoid(),
-      //!!END_ADD
       title,
       body,
       imageUrl
     };
 
-    //!!START SILENT
-    /*
-    (async (dispatch) => {
-      const response = await fetch('/articles', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-
-      if (response.ok) {
-        const article = await response.json();
-        dispatch(addArticle(article));
-        return article;
-      } else {
-        return undefined;
-      }
-    })();
-
-    */
     const article = await dispatch(writeArticle(newArticle));
-    console.log(article);
     if (article) reset();
-    //!!END
-    //!!ADD
-    // dispatch(addArticle(newArticle));
-    // reset();
-    //!!END_ADD
   };
 
   const reset = () => {
