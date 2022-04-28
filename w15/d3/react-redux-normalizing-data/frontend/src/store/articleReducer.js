@@ -36,12 +36,26 @@ export const writeArticle = (payload) => async (dispatch) => {
 };
 
 //!!START SILENT
-const initialState = { entries: {}, isLoading: true };
+const initialState = { entries: {}, isLoading: true, comments: []};
 //!!END
 //!!ADD
 // const initialState = { entries: [], isLoading: true };
 //!!END_ADD
 
+/*
+{
+  id: 1
+  title: hello
+  imgUrl: www.google,
+}
+ {
+   entries: { 1: { id: 1, title: hello, imgUrl: www.google }, 2: {id, title} }
+ }
+
+ {
+   entries: { 1: { id: 1, title: hello, imgUrl: www.google }, 2: {id, title}, 3: {id, title} }
+ }
+*/
 const articleReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_ARTICLES: 
